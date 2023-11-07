@@ -1,5 +1,6 @@
 import { CacheType, GuildMember, Interaction, TextChannel } from "discord.js";
 import { IBot, IEvent, ISlashCommand } from "../utils/interfaces";
+import logger from "../utils/logger";
 
 module.exports = {
     name: "interactionCreate",
@@ -16,7 +17,7 @@ module.exports = {
             if (!slashCommand) return await interaction.editReply("This command does not exist!");
 
             await interaction.deferReply({ ephemeral: slashCommand.ephemeral || false }).catch((err: Error) => {
-                console.error(err);
+                logger.error(err);
             });
 
             if (slashCommand.devOnly && !owners.includes(member.id)) {
@@ -34,13 +35,13 @@ module.exports = {
             }
 
             await slashCommand.execute(bot, interaction).catch((err: Error) => {
-                console.error(err);
+                logger.error(err);
             });
         } else if (interaction.isButton()) {
             const button = buttons.get(interaction.customId);
             if (button?.deferReply) {
                 await interaction.deferReply({ ephemeral: button?.ephemeral || false }).catch((err: Error) => {
-                    console.error(err);
+                    logger.error(err);
                 });
             }
 
@@ -50,13 +51,13 @@ module.exports = {
             }
 
             await button.execute(bot, interaction).catch((err: Error) => {
-                console.error(err);
+                logger.error(err);
             });
         } else if (interaction.isModalSubmit()) {
             const modal = modals.get(interaction.customId);
             if (modal?.deferReply) {
                 await interaction.deferReply({ ephemeral: modal?.ephemeral || false }).catch((err: Error) => {
-                    console.error(err);
+                    logger.error(err);
                 });
             }
 
@@ -66,7 +67,7 @@ module.exports = {
             }
 
             await modal.execute(bot, interaction).catch((err: Error) => {
-                console.error(err);
+                logger.error(err);
             });
         }
     }

@@ -1,7 +1,8 @@
-console.log("Starting bot...")
 import { Client, Collection, IntentsBitField } from 'discord.js';
 import { loadButtons, loadEvents, loadModals, loadSlashCommands } from './handlers';
 import { IBot, IButton, IEvent, IModal, ISlashCommand } from './utils/interfaces';
+import logger from './utils/logger';
+logger.log('Starting...');
 
 require('dotenv').config();
 

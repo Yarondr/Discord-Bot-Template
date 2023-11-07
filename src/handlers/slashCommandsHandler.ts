@@ -2,6 +2,7 @@ import * as fs from "fs";
 import path from "path";
 import { getFiles } from "../utils/filesReader";
 import { IBot, ISlashCommand } from "../utils/interfaces";
+import logger from "../utils/logger";
 
 export function loadSlashCommands(bot: IBot, reload: boolean) {
     const { slashCommands } = bot;
@@ -22,5 +23,5 @@ export function loadSlashCommands(bot: IBot, reload: boolean) {
             slashCommands.set(command.name, command)
         })
     })
-    console.log(`Loaded ${slashCommands.size} slash commands`)
+    logger.log(`Loaded ${slashCommands.size} slash commands`)
 }

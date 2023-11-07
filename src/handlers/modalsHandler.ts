@@ -2,6 +2,7 @@ import * as fs from "fs";
 import path from "path";
 import { getFiles } from "../utils/filesReader";
 import { IBot, IModal } from "../utils/interfaces";
+import logger from "../utils/logger";
 
 export function loadModals(bot: IBot, reload: boolean) {
     const { modals } = bot;
@@ -22,5 +23,5 @@ export function loadModals(bot: IBot, reload: boolean) {
             modals.set(modal.id, modal)
         })
     })
-    console.log(`Loaded ${modals.size} modals`)
+    logger.log(`Loaded ${modals.size} modals`)
 }

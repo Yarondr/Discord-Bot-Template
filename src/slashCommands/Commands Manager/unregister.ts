@@ -1,5 +1,6 @@
 import { ApplicationCommand, ApplicationCommandOptionType, CommandInteraction } from "discord.js";
 import { IBot, ISlashCommand } from "../../utils/interfaces";
+import logger from "../../utils/logger";
 
 module.exports = {
     name: "unregister",
@@ -37,7 +38,7 @@ module.exports = {
                 await interaction.editReply({ content: `Command ${cmd.name} has been unregistered!` });
             }
         } catch (e) {
-            console.error(e);
+            logger.error(e);
             return interaction.editReply({ content: "An error occurred while trying to unregister the command." });
         }
     }

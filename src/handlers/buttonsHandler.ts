@@ -2,6 +2,7 @@ import * as fs from "fs";
 import path from "path";
 import { getFiles } from "../utils/filesReader";
 import { IBot, IButton } from "../utils/interfaces";
+import logger from "../utils/logger";
 
 export function loadButtons(bot: IBot, reload: boolean) {
     const { buttons } = bot;
@@ -22,5 +23,5 @@ export function loadButtons(bot: IBot, reload: boolean) {
             buttons.set(button.id, button)
         })
     })
-    console.log(`Loaded ${buttons.size} buttons`)
+    logger.log(`Loaded ${buttons.size} buttons`)
 }
