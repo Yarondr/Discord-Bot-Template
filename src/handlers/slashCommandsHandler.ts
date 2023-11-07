@@ -12,9 +12,10 @@ export function loadSlashCommands(bot: IBot, reload: boolean) {
         let slashCommandsFiles = getFiles(commandPath, ".ts");
 
         slashCommandsFiles.forEach((f) => {
-            if (reload)
-                delete require.cache[require.resolve(`../slashCommands/${category}/${f}`)]
-            const command: ISlashCommand = require(`../slashCommands/${category}/${f}`)
+            const filePath = `../slashCommands/${category}/${f}`
+
+            if (reload) delete require.cache[require.resolve(filePath)]
+            const command: ISlashCommand = require(filePath)
 
             if (!command.category) command.category = category;
 

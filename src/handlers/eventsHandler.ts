@@ -12,11 +12,11 @@ export function loadEvents(bot: IBot, reload: boolean) {
     }
 
     eventsFiles.forEach((fileName, index) => {
-        if (reload) {
-            delete require.cache[require.resolve(`../events/${fileName}`)];
-        }
+        const filePath = `../events/${fileName}`
 
-        const event: IEvent = require(`../events/${fileName}`)
+        if (reload) delete require.cache[require.resolve(filePath)];
+        const event: IEvent = require(filePath)
+
         if (event.once) {
             client.once(event.name, (...args) => event.execute(bot, ...args));
         } else {

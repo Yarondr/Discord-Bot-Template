@@ -1,6 +1,6 @@
 import { ActionRowBuilder, ModalActionRowComponentBuilder, ModalBuilder, TextInputBuilder } from "@discordjs/builders";
 import { ButtonInteraction, TextInputStyle } from "discord.js";
-import { IBot, IButton } from "../../utils/interfaces";
+import { IBot, IButton } from "../../../utils/interfaces";
 
 module.exports = {
     id: 'configUserNicknameButton',

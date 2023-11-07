@@ -1,5 +1,5 @@
 import { GuildMember, ModalSubmitInteraction } from "discord.js";
-import { IBot, IModal } from "../../utils/interfaces";
+import { IBot, IModal } from "../../../utils/interfaces";
 
 module.exports = {
     id: 'nicknameModal',
