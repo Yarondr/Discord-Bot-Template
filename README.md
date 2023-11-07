@@ -2,18 +2,6 @@
 
 This repository is a Discord bot template project that uses the [`discord.js`](https://discord.js.org) library to help you kickstart your own bot development. Whether you're a beginner or an experienced developer, this template provides a solid foundation for creating a functional and extensible Discord bot.
 
-## Table of Contents 📜
-
-- [Discord Bot Template](#discord-bot-template)
-  - [Table of Contents](#table-of-contents)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-  - [Usage](#usage)
-  - [Customization](#customization)
-  - [Contributing](#contributing)
-  - [License](#license)
-
 ## Getting Started 🚀
 
 Follow these steps to set up and start using this Discord bot template.
